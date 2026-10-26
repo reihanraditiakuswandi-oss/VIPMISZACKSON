@@ -44,8 +44,22 @@ function selectVideo(index){
  const art=document.querySelector(".player-art");art.style.background=`radial-gradient(ellipse at 50% 45%,${v.colors[0]} 0,transparent 38%),linear-gradient(130deg,${v.colors[1]},#05060a 70%)`;art.querySelector(".art-text").innerHTML=v.icon+" <span style='color:var(--cyan)'>"+v.category.toUpperCase()+"</span>";
  document.getElementById("playerStatus").textContent="▶ Pratinjau: "+v.title;document.getElementById("videoAd").classList.remove("show");window.scrollTo({top:0,behavior:"smooth"});
 }
-function toggleMainVideo(){const ad=document.getElementById("videoAd");ad.classList.toggle("show");document.getElementById("playerStatus").textContent=ad.classList.contains("show")?"Iklan demo ditampilkan":"▶ Pratinjau demo";if(ad.classList.contains("show"))setTimeout(()=>{},100)}
-function closeVideoAd(){document.getElementById("videoAd").classList.remove("show");document.getElementById("playerStatus").textContent="▶ Pratinjau demo"}
+function toggleMainVideo() {
+  const videoAd = document.getElementById("videoAd");
+  const playerStatus = document.getElementById("playerStatus");
+
+  if (!videoAd) return;
+
+  videoAd.classList.toggle("show");
+
+  if (playerStatus) {
+    playerStatus.textContent = videoAd.classList.contains("show")
+      ? "Iklan ditampilkan"
+      : "Pratinjau demo";
+  }
+ 
+function closeVideoAd(){
+document.getElementById("videoAd").classList.remove("show");document.getElementById("playerStatus").textContent="▶ Pratinjau demo"}
 let toastTimer;function showToast(message){const el=document.getElementById("toast");el.textContent=message;el.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove("show"),2800)}
 document.getElementById("search").addEventListener("input",()=>{shown=videos.length;render()});
 document.querySelectorAll("[data-sort]").forEach(btn=>btn.addEventListener("click",()=>{sortMode=btn.dataset.sort;document.querySelectorAll("[data-sort]").forEach(b=>b.classList.toggle("active",b===btn));render()}));
