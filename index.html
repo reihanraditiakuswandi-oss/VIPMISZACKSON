@@ -1,185 +1,151 @@
-
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MISZACKSONVIP - Video Trending</title>
-  <meta name="description" content="Galeri video MISZACKSONVIP">
+  <title>VIPMISZACKSON</title>
   <style>
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      background: #070910;
-      color: #f4f7ff;
+      background: #000;
+      color: white;
       font-family: Arial, sans-serif;
+      min-height: 100vh;
     }
     header {
-      padding: 18px 5%;
-      background: #0c1120;
-      border-bottom: 1px solid #25344e;
-      color: #10d8f5;
-      font-size: 23px;
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      right: 12px;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      z-index: 5;
+    }
+    .top-btn {
+      display: inline-block;
+      padding: 11px 15px;
+      border-radius: 24px;
+      background: #ff3c9e;
+      color: white;
+      text-decoration: none;
+      font-size: 13px;
       font-weight: bold;
     }
-    main { max-width: 1100px; margin: auto; padding: 20px; }
+    main {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 70px 12px 24px;
+    }
     .player {
+      width: min(100%, 390px);
       position: relative;
-      background: #020308;
-      border: 1px solid #243955;
-      border-radius: 14px;
+      background: #111;
+      border-radius: 8px;
       overflow: hidden;
     }
-    .screen {
-      min-height: 280px;
-      aspect-ratio: 16 / 9;
+    video {
+      display: block;
+      width: 100%;
+      max-height: 78vh;
+      aspect-ratio: 9 / 16;
+      object-fit: contain;
+      background: #000;
+    }
+    .cover {
+      position: absolute;
+      inset: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
-      background: radial-gradient(ellipse, #12314a, #05070d 70%);
+      background: rgba(0,0,0,.35);
     }
-    .play {
+    .play-btn {
       border: 0;
-      border-radius: 50%;
-      width: 68px;
-      height: 68px;
-      background: #08c8ef;
-      color: #00121b;
-      font-size: 30px;
+      border-radius: 50px;
+      padding: 17px 24px;
+      background: #ff3c9e;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
       cursor: pointer;
     }
-    .ad-overlay {
+    #shopeeNotice {
       display: none;
-      position: absolute;
-      inset: 12px;
-      z-index: 2;
-      background: rgba(5, 10, 25, .96);
-      border: 1px solid #08c8ef;
-      border-radius: 12px;
-      padding: 20px;
+      width: min(100%, 390px);
+      margin-top: 14px;
       text-align: center;
-      align-content: center;
+      font-size: 13px;
+      line-height: 1.5;
     }
-    .ad-overlay.show { display: grid; gap: 12px; }
-    .ad-overlay a, .banner a {
+    #shopeeNotice a {
       display: inline-block;
-      background: #08c8ef;
-      color: #00121b;
-      padding: 11px 16px;
-      border-radius: 8px;
+      margin-top: 8px;
+      background: #ff3c9e;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 22px;
       text-decoration: none;
       font-weight: bold;
-    }
-    .close {
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      background: #182239;
-      color: white;
-      border: 0;
-      padding: 8px 12px;
-      cursor: pointer;
-    }
-    .banner {
-      margin: 18px 0 28px;
-      padding: 22px;
-      border: 1px dashed #38516f;
-      border-radius: 12px;
-      background: #0d1424;
-      text-align: center;
-    }
-    .banner p { color: #aabbd4; }
-    h2 { font-size: 19px; }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 12px;
-    }
-    .card {
-      padding: 18px 12px;
-      background: #11192a;
-      border: 1px solid #263750;
-      border-radius: 10px;
-      color: white;
-      cursor: pointer;
-      text-align: left;
-    }
-    .card:hover { border-color: #08c8ef; }
-    .note { color: #9aaac1; font-size: 13px; }
-    @media (max-width: 600px) {
-      main { padding: 12px; }
-      .screen { min-height: 220px; }
     }
   </style>
 </head>
 <body>
-  <header>▶ MISZACKSONVIP</header>
+  <header>
+    <a class="top-btn" href="https://t.me/" target="_blank" rel="noopener noreferrer">Grup Telegram Gratis</a>
+    <a class="top-btn" href="https://s.shopee.co.id/8pmj9W5oUw" target="_blank" rel="noopener noreferrer">Link Alternatif</a>
+  </header>
 
   <main>
-    <section class="player">
-      <div class="screen" id="screen">
-        <button class="play" id="playButton" aria-label="Tampilkan iklan">▶</button>
-
-        <div class="ad-overlay" id="adOverlay">
-          <button class="close" id="closeAd">Tutup ×</button>
-          <strong>IKLAN / SPONSOR</strong>
-          <p>Area iklan di dalam pemutar video.</p>
-          <a href="#" id="adLink" target="_blank" rel="noopener noreferrer">Kunjungi sponsor</a>
-          <p class="note">Tutup iklan untuk melanjutkan.</p>
-        </div>
+    <div class="player">
+      <video id="video" controls playsinline preload="metadata">
+        <source src="https://cdn2.videy.ai.id/f1dd72be.mp4" type="video/mp4">
+        Browser kamu tidak mendukung pemutaran video.
+      </video>
+      <div class="cover" id="cover">
+        <button class="play-btn" id="playButton">▶ Putar Video</button>
       </div>
-    </section>
+    </div>
 
-    <p id="status" class="note">Pilih video di bawah untuk mulai.</p>
-
-    <section class="banner">
-      <strong>ADVERTISEMENT · BANNER</strong>
-      <p>Tempat untuk kode iklan banner kamu.</p>
-      <a href="#" id="bannerLink" target="_blank" rel="noopener noreferrer">Info sponsor</a>
-    </section>
-
-    <h2>▦ Video Lainnya</h2>
-    <div class="grid" id="videoGrid">
-      <button class="card" data-video="1">▶ Video 1 <p class="note">Tambahkan tautan video nanti</p></button>
-      <button class="card" data-video="2">▶ Video 2 <p class="note">Tambahkan tautan video nanti</p></button>
-      <button class="card" data-video="3">▶ Video 3 <p class="note">Tambahkan tautan video nanti</p></button>
-      <button class="card" data-video="4">▶ Video 4 <p class="note">Tambahkan tautan video nanti</p></button>
-      <button class="card" data-video="5">▶ Video 5 <p class="note">Tambahkan tautan video nanti</p></button>
+    <div id="shopeeNotice">
+      Video siap diputar. Jika tab Shopee tidak terbuka otomatis saat timeline digeser, gunakan tombol ini.
+      <br>
+      <a href="https://s.shopee.co.id/8pmj9W5oUw" target="_blank" rel="noopener noreferrer">Buka Shopee</a>
     </div>
   </main>
 
   <script>
-    // Ganti kedua alamat ini dengan tautan iklan milikmu.
     const AD_URL = "https://auctionr.org/4/60cb60e3050fe037f72088a700cab7ca";
-    const BANNER_URL = "https://example.com";
+    const SHOPEE_URL = "https://s.shopee.co.id/8pmj9W5oUw";
+    const video = document.getElementById("video");
+    const cover = document.getElementById("cover");
+    const playButton = document.getElementById("playButton");
+    const shopeeNotice = document.getElementById("shopeeNotice");
 
-    const overlay = document.getElementById("adOverlay");
-    const adLink = document.getElementById("adLink");
-    const bannerLink = document.getElementById("bannerLink");
-
-    adLink.href = AD_URL;
-    bannerLink.href = BANNER_URL;
-
-    document.getElementById("playButton").addEventListener("click", () => {
-      overlay.classList.add("show");
-      document.getElementById("status").textContent =
-        "Iklan ditampilkan. Tutup iklan untuk melanjutkan.";
+    playButton.addEventListener("click", function () {
+      // Membuka sponsor melalui tindakan langsung pengunjung.
+      window.open(AD_URL, "_blank", "noopener,noreferrer");
+      cover.style.display = "none";
+      shopeeNotice.style.display = "block";
+      // Pengunjung menekan Play bawaan video untuk mulai menonton.
     });
 
-    document.getElementById("closeAd").addEventListener("click", () => {
-      overlay.classList.remove("show");
-      document.getElementById("status").textContent =
-        "Pemutar siap. Tautan video akan ditambahkan pada langkah berikutnya.";
-    });
+    let lastSeekAdTime = 0;
+    video.addEventListener("seeking", function () {
+      const now = Date.now();
+      if (now - lastSeekAdTime < 5000) return;
+      lastSeekAdTime = now;
 
-    document.querySelectorAll(".card").forEach((card) => {
-      card.addEventListener("click", () => {
-        overlay.classList.remove("show");
-        document.getElementById("status").textContent =
-          card.textContent.trim() + " — tautan video belum ditambahkan.";
-      });
+      // Browser mungkin memblokir tab baru dari event timeline.
+      const adTab = window.open(SHOPEE_URL, "_blank", "noopener,noreferrer");
+      shopeeNotice.style.display = "block";
     });
   </script>
 </body>
 </html>
+```
